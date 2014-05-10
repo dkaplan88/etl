@@ -1,9 +1,7 @@
 class ETL
-  def self.transform(old, new_hash = {})
-    old.each do |k,v|
+  def self.transform(old)
+    old.each_with_object({}) do |(k,v), new_hash|
       v.each { |v| new_hash[v.downcase] = k }
     end
-    
-    new_hash
   end
 end
